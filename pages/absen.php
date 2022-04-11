@@ -1,4 +1,6 @@
 <?php
+
+
     $template = "absen";
     $title = "Absen";
     $konten ="
