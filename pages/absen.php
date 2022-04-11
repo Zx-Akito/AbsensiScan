@@ -1,5 +1,17 @@
 <?php
 
+    $var01 = $_POST['var01'];
+    $var03 = date ("Ymd");
+    $var04 = date ("H:i:s");
+ 
+    $kunci="username_siswa='$var01'";
+    $q=AmbilData ("siswa",$kunci);
+    $var02 = $q['id_kelas'];
+
+    if ($var01!="")
+    {
+        Absen ($var01,$var02,$var03,$var04);
+    }
 
     $template = "absen";
     $title = "Absen";
@@ -20,9 +32,9 @@
                     <h6>Nama  : Rifki Nurmansyah</h6>
                     <h6>Kelas : XII RPL</h6>
                 </div>
-                <form method='post'>
+                <form method='post' autocomplete='off'>
                     <div class='form-group col'>
-                        <input type='text' class='form-control' autofocus>
+                        <input type='text' class='form-control' name='var01' autofocus>
                     </div>
                 </form>
             </div>
