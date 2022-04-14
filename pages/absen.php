@@ -7,10 +7,21 @@
     $kunci="username_siswa='$var01'";
     $q=AmbilData ("siswa",$kunci);
     $var02 = $q['id_kelas'];
+    $q1=AmbilData ("absensi",$kunci);
+    $waktu_masuk= $q1['jam_aturan_masuk'];
+    $waktu_pulang= $q1['jam_aturan_pulang'];
 
     if ($var01!="")
     {
-        Absen ($var01,$var02,$var03,$var04);
+        $ambil=mysqli_query($koneksi,"SELECT * FROM siswa WHERE username_siswa='$var01'");
+        if(mysqli_num_rows($ambil) > 0)
+        {
+            Absen($var01,$var02,$var03,$var04);
+        }
+        else
+        {
+            echo "<div class='alert alert-info'>Username tidak di temukan</div>";
+        }
     }
 
     $template = "absen";
