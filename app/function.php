@@ -31,7 +31,7 @@
         }
         else
         {
-            if($var04 < $waktu_masuk)
+            if($var04 > $waktu_masuk)
             {
                 $q = "INSERT INTO absensi (username_siswa,id_kelas,tanggal,absensi_masuk) values ('$var01','$var02','$var03','$var04')";
             }
@@ -48,4 +48,12 @@
         }
     }
 
+    function Kelas($data)
+    {
+        switch($data)
+        {
+            case "1":return "RPL";break;
+            case "2":return "TKJ";break;
+        }
+    }
 ?>
