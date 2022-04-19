@@ -17,7 +17,27 @@
         if(mysqli_num_rows($ambil) > 0)
         {
             Absen($var01,$var02,$var03,$var04);
-            $absen="
+        }
+        else
+        {
+            echo "<div class='alert alert-info'>Username tidak di temukan</div>";
+        }
+    }
+    if($var04="")
+    {
+        $absen="
+                <div class='col-3 mx-auto'>
+                    <img src='././assets/img/a.webp' alt='user' style='width:100%;'>
+                </div>
+                <div class='col-5 mx-auto my-3'>
+                    <h6>Nama  : </h6>
+                    <h6>Kelas :</h6>
+                </div>
+            ";
+    }
+    else
+    {
+        $absen="
                 <div class='col-3 mx-auto'>
                     <img src='././assets/img/a.webp' alt='user' style='width:100%;'>
                 </div>
@@ -26,13 +46,7 @@
                     <h6>Kelas : ".Kelas($kelas)."</h6>
                 </div>
             ";
-        }
-        else
-        {
-            echo "<div class='alert alert-info'>Username tidak di temukan</div>";
-        }
     }
-
     $template = "absen";
     $title = "Absen";
     $konten ="
