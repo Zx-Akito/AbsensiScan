@@ -31,14 +31,21 @@
         }
         else
         {
-            $q = "INSERT INTO absensi (username_siswa,id_kelas,tanggal,absensi_masuk) values ('$var01','$var02','$var03','$var04')";
+            if($var04 < $waktu_masuk)
+            {
+                $q = "INSERT INTO absensi (username_siswa,id_kelas,tanggal,absensi_masuk) values ('$var01','$var02','$var03','$var04')";
+            }
+            else
+            {
+                $q = "INSERT INTO absensi (username_siswa,id_kelas,tanggal,absensi_masuk) values ('$var01','$var02','$var03','$var04')";
+                echo "<div class='alert alert-warning'>Anda Telat</div>";
+            }
         }
-        
-       $hasil=mysqli_query($koneksi,$q);
-       if($hasil)
-       {
-            echo "<div class='alert alert-success'>Absen Berhasil</div>";
-       }
+        $hasil=mysqli_query($koneksi,$q);
+        if($hasil)
+        {
+                echo "<div class='alert alert-success'>Absen Berhasil</div>";
+        }
     }
 
 ?>
